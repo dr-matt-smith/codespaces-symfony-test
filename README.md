@@ -1,6 +1,8 @@
 using MS Devcontaine for PHP 
 https://github.com/microsoft/vscode-remote-try-php
 
+set PHP 8 in `.devcontainer` and `Dockerfile`
+
 added 2 lines to .devcontainer install symfony CLI
 ```bash
   # Install Symfony CLI
