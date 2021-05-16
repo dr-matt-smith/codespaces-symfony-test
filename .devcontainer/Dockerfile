@@ -15,7 +15,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
     && rmdir /root/.symfony/bin /root/.symfony \
-    && /usr/local/bin/symfony self-update --no-interaction \
+    && /usr/local/bin/symfony self-update --no-interaction
+
+RUN apt-get install -y libzip-dev \
+    && docker-php-ext-configure zip  \
+    && docker-php-ext-install zip \
+    && docker-php-ext-install bcmath mysqli pdo pdo_mysql
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
